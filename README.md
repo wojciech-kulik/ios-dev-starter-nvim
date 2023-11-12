@@ -24,3 +24,7 @@ This a repository with a sample config that provides all features required to de
 This repository is a complementary project for my blog post: [The Complete Guide To iOS & macOS Development In Neovim](https://wojciechkulik.pl/ios/the-complete-guide-to-ios-macos-development-in-neovim). 
 
 Please read it to learn how to use this config.
+
+## Xcodebuild.nvim
+
+If you already have your setup, you may want to check out just my [xcodebuild.nvim](https://github.com/wojciech-kulik/xcodebuild.nvim) plugin that adds actions like build, run, and test for iOS and macOS apps to your Neovim.
