@@ -1,0 +1,22 @@
+std = {
+  globals = {
+    "P",
+    "tostring",
+    "math",
+    "coroutine",
+    "pcall",
+    "describe",
+    "it",
+    "next",
+    "table",
+    "os",
+    "vim",
+    "require",
+    "io",
+    "pairs",
+    "ipairs",
+    "string",
+    "error",
+    "tonumber",
+  },
+}
