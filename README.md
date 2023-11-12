@@ -9,7 +9,7 @@ This a repository with a sample config that provides all features required to de
 - SwiftFormat - install via Homebrew
 - xcbeautify - install via Homebrew
 - [xcode-build-server](https://github.com/SolaWing/xcode-build-server) - clone repository, unzip, and run it for your project
-- make sure that the path to `sourcekit-lsp` in `nvim-lspconfig.lua` point to you Xcode.
+- make sure that the path to `sourcekit-lsp` in `nvim-lspconfig.lua` points to you Xcode.
 
 ## Basic Key Bindings
 
