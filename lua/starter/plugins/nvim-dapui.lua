@@ -1,16 +1,15 @@
 return {
   "rcarriga/nvim-dap-ui",
-  dependencies = {
-    "mfussenegger/nvim-dap",
-  },
+  dependencies = { "mfussenegger/nvim-dap" },
+  lazy = true,
   config = function()
     require("dapui").setup({
       controls = {
         element = "repl",
         enabled = true,
         icons = {
+          disconnect = "󱐤",
           run_last = "󰑙",
-          disconnect = "",
           terminate = "",
           pause = "󰏤",
           play = "",
@@ -20,69 +19,31 @@ return {
           step_back = "󰓕",
         },
       },
-      element_mappings = {},
-      expand_lines = true,
       floating = {
         border = "single",
         mappings = {
           close = { "q", "<Esc>" },
         },
       },
-      force_buffers = true,
-      icons = {
-        collapsed = "",
-        expanded = "",
-        current_frame = "",
-      },
+      icons = { collapsed = "", expanded = "", current_frame = "" },
       layouts = {
         {
           elements = {
-            {
-              id = "stacks",
-              size = 0.25,
-            },
-            {
-              id = "scopes",
-              size = 0.25,
-            },
-            {
-              id = "breakpoints",
-              size = 0.25,
-            },
-            {
-              id = "watches",
-              size = 0.25,
-            },
+            { id = "stacks", size = 0.25 },
+            { id = "scopes", size = 0.25 },
+            { id = "breakpoints", size = 0.25 },
+            { id = "watches", size = 0.25 },
           },
           position = "left",
           size = 60,
         },
         {
           elements = {
-            {
-              id = "repl",
-              size = 1.0,
-            },
-            -- {
-            -- 	id = "console",
-            -- 	size = 0.5,
-            -- },
+            { id = "repl", size = 1.0 },
           },
           position = "bottom",
           size = 10,
         },
-      },
-      mappings = {
-        edit = "e",
-        expand = { "<CR>", "<2-LeftMouse>" },
-        open = "o",
-        remove = "d",
-        repl = "r",
-        toggle = "t",
-      },
-      render = {
-        indent = 1,
-        max_value_lines = 100,
       },
     })
 

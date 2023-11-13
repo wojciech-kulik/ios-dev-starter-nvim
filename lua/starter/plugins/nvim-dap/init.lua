@@ -8,7 +8,7 @@ return {
     local xcodebuild = require("xcodebuild.dap")
     local breakpoints = require("starter.plugins.nvim-dap.dap-remember-breakpoints")
     local autogroup = vim.api.nvim_create_augroup("dap-breakpoints", { clear = true })
-     
+
     vim.api.nvim_create_autocmd({ "VimEnter" }, {
       group = autogroup,
       pattern = "*",
@@ -47,11 +47,12 @@ return {
     }
 
     -- nice breakpoint icons
-    vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticError", linehl = "", numhl = "" })
-    vim.fn.sign_define(
-      "DapBreakpointRejected",
-      { text = "", texthl = "DiagnosticError", linehl = "", numhl = "" }
-    )
+    local define = vim.fn.sign_define
+    define("DapBreakpoint", { text = "", texthl = "DiagnosticError", linehl = "", numhl = "" })
+    define("DapBreakpointRejected", { text = "", texthl = "DiagnosticError", linehl = "", numhl = "" })
+    define("DapStopped", { text = "", texthl = "DiagnosticOk", linehl = "", numhl = "" })
+    define("DapLogPoint", { text = "", texthl = "DiagnosticInfo", linehl = "", numhl = "" })
+    define("DapLogPoint", { text = "", texthl = "DiagnosticInfo", linehl = "", numhl = "" })
 
     -- integration with xcodebuild.nvim
     vim.keymap.set("n", "<leader>dd", xcodebuild.build_and_debug, { desc = "Build & Debug" })
