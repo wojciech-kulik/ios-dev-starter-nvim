@@ -6,8 +6,17 @@ return {
 
     -- find .swiftformat config file in the working directory
     -- could be simplified if you keep it always in the root directory
-    local swiftFormatConfigs =
-      vim.fn.systemlist({ "find", vim.fn.getcwd(), "-iname", ".swiftformat", "-not", "-path", "*/.*/*" })
+    local swiftFormatConfigs = vim.fn.systemlist({
+      "find",
+      vim.fn.getcwd(),
+      "-maxdepth",
+      "2", -- if you need you can set higher number
+      "-iname",
+      ".swiftformat",
+      "-not",
+      "-path",
+      "*/.*/*",
+    })
 
     table.sort(swiftFormatConfigs, function(a, b)
       return a ~= "" and #a < #b

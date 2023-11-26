@@ -15,8 +15,17 @@ return {
 
     -- find .swiftlint.yml config file in the working directory
     -- could be simplified if you keep it always in the root directory
-    local swiftlintConfigs =
-      vim.fn.systemlist({ "find", vim.fn.getcwd(), "-iname", ".swiftlint.yml", "-not", "-path", "*/.*/*" })
+    local swiftlintConfigs = vim.fn.systemlist({
+      "find",
+      vim.fn.getcwd(),
+      "-maxdepth",
+      "2", -- if you need you can set higher number
+      "-iname",
+      ".swiftlint.yml",
+      "-not",
+      "-path",
+      "*/.*/*",
+    })
 
     table.sort(swiftlintConfigs, function(a, b)
       return a ~= "" and #a < #b
