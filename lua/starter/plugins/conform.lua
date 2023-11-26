@@ -1,31 +1,10 @@
+local utils = require("starter.utils")
+
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
-
-    -- find .swiftformat config file in the working directory
-    -- could be simplified if you keep it always in the root directory
-    local swiftFormatConfigs = vim.fn.systemlist({
-      "find",
-      vim.fn.getcwd(),
-      "-maxdepth",
-      "2", -- if you need you can set higher number
-      "-iname",
-      ".swiftformat",
-      "-not",
-      "-path",
-      "*/.*/*",
-    })
-
-    table.sort(swiftFormatConfigs, function(a, b)
-      return a ~= "" and #a < #b
-    end)
-
-    local selectedSwiftFormatConfig
-    if swiftFormatConfigs[1] then
-      selectedSwiftFormatConfig = string.match(swiftFormatConfigs[1], "^%s*(.-)%s*$")
-    end
 
     conform.setup({
       formatters_by_ft = {
@@ -38,16 +17,18 @@ return {
       formatters = {
         swiftformat_ext = {
           command = "swiftformat",
-          args = {
-            "--config",
-            selectedSwiftFormatConfig or "~/.config/nvim/.swiftformat", -- update fallback path if needed
-            "--stdinpath",
-            "$FILENAME",
-          },
+          args = function()
+            return {
+              "--config",
+              utils.find_config(".swiftformat") or "~/.config/nvim/.swiftformat", -- update fallback path if needed
+              "--stdinpath",
+              "$FILENAME",
+            }
+          end,
           range_args = function(ctx)
             return {
               "--config",
-              selectedSwiftFormatConfig or "~/.config/nvim/.swiftformat", -- update fallback path if needed
+              utils.find_config(".swiftformat") or "~/.config/nvim/.swiftformat", -- update fallback path if needed
               "--linerange",
               ctx.range.start[1] .. "," .. ctx.range["end"][1],
             }

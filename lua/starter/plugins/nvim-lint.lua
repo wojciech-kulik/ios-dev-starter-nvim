@@ -1,3 +1,5 @@
+local utils = require("starter.utils")
+
 return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPre", "BufNewFile" },
@@ -13,29 +15,6 @@ return {
       ["warning"] = vim.diagnostic.severity.WARN,
     }
 
-    -- find .swiftlint.yml config file in the working directory
-    -- could be simplified if you keep it always in the root directory
-    local swiftlintConfigs = vim.fn.systemlist({
-      "find",
-      vim.fn.getcwd(),
-      "-maxdepth",
-      "2", -- if you need you can set higher number
-      "-iname",
-      ".swiftlint.yml",
-      "-not",
-      "-path",
-      "*/.*/*",
-    })
-
-    table.sort(swiftlintConfigs, function(a, b)
-      return a ~= "" and #a < #b
-    end)
-
-    local selectedSwiftlintConfig
-    if swiftlintConfigs[1] then
-      selectedSwiftlintConfig = string.match(swiftlintConfigs[1], "^%s*(.-)%s*$")
-    end
-
     lint.linters.swiftlint = {
       cmd = "swiftlint",
       stdin = false,
@@ -44,7 +23,9 @@ return {
         "--force-exclude",
         "--use-alternative-excluding",
         "--config",
-        selectedSwiftlintConfig or os.getenv("HOME") .. "/.config/nvim/.swiftlint.yml", -- change path if needed
+        function()
+          return utils.find_config(".swiftlint.yml") or os.getenv("HOME") .. "/.config/nvim/.swiftlint.yml" -- change path if needed
+        end,
       },
       stream = "stdout",
       ignore_exitcode = true,
