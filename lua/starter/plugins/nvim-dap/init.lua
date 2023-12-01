@@ -1,3 +1,27 @@
+local function setupListeners()
+  local dap = require("dap")
+
+  dap.listeners.after["event_initialized"]["me"] = function()
+    vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Continue" })
+    vim.keymap.set("n", "<leader>dC", dap.run_to_cursor, { desc = "Run To Cursor" })
+    vim.keymap.set("n", "<leader>ds", dap.step_over, { desc = "Step Over" })
+    vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Step Into" })
+    vim.keymap.set("n", "<leader>do", dap.step_out, { desc = "Step Out" })
+    vim.keymap.set({ "n", "v" }, "<Leader>dh", require("dap.ui.widgets").hover, { desc = "Hover" })
+    vim.keymap.set({ "n", "v" }, "<Leader>de", require("dapui").eval, { desc = "Eval" })
+  end
+
+  dap.listeners.after["event_terminated"]["me"] = function()
+    vim.keymap.del("n", "<leader>dc")
+    vim.keymap.del("n", "<leader>dC")
+    vim.keymap.del("n", "<leader>ds")
+    vim.keymap.del("n", "<leader>di")
+    vim.keymap.del("n", "<leader>do")
+    vim.keymap.del({ "n", "v" }, "<Leader>dh")
+    vim.keymap.del({ "n", "v" }, "<Leader>de")
+  end
+end
+
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
@@ -54,22 +78,27 @@ return {
     define("DapLogPoint", { text = "", texthl = "DiagnosticInfo", linehl = "", numhl = "" })
     define("DapLogPoint", { text = "", texthl = "DiagnosticInfo", linehl = "", numhl = "" })
 
+    -- disables annoying warning that requires hitting enter
+    local orig_notify = require("dap.utils").notify
+    require("dap.utils").notify = function(msg, log_level)
+      if not string.find(msg, "Either the adapter is slow") then
+        orig_notify(msg, log_level)
+      end
+    end
+
     -- integration with xcodebuild.nvim
+    setupListeners()
+
     vim.keymap.set("n", "<leader>dd", xcodebuild.build_and_debug, { desc = "Build & Debug" })
     vim.keymap.set("n", "<leader>dr", xcodebuild.debug_without_build, { desc = "Debug Without Building" })
-
-    vim.keymap.set("n", "<leader>dc", dap.continue)
-    vim.keymap.set("n", "<leader>ds", dap.step_over)
-    vim.keymap.set("n", "<leader>di", dap.step_into)
-    vim.keymap.set("n", "<leader>do", dap.step_out)
     vim.keymap.set("n", "<C-b>", function()
       dap.toggle_breakpoint()
       breakpoints.store()
-    end)
+    end, { desc = "Toggle Breakpoint" })
     vim.keymap.set("n", "<C-s-b>", function()
       dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
       breakpoints.store()
-    end)
+    end, { desc = "Toggle Log Breakpoint" })
     vim.keymap.set("n", "<Leader>dx", function()
       dap.terminate()
       require("xcodebuild.actions").cancel()
@@ -78,6 +107,6 @@ return {
       if success then
         dapui.close()
       end
-    end)
+    end, { desc = "Terminate" })
   end,
 }
