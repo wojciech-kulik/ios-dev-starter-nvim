@@ -17,11 +17,13 @@ This a repository with a sample config that provides all features required to de
 - `<leader>X` - open `xcodebuild.nvim` picker with project actions
 - `<leader>xb` - build project
 - `<leader>xt` - run tests
+- `<leader>xc` - show code coverage
+- `<leader>xC` - show code coverage report
 - `<C-b>` - toggle breakpoint
 
 ## Full Tutorial
 
-This repository is a complementary project for my blog post: [The Complete Guide To iOS & macOS Development In Neovim](https://wojciechkulik.pl/ios/the-complete-guide-to-ios-macos-development-in-neovim). 
+This repository is a complementary project for my blog post: [The Complete Guide To iOS & macOS Development In Neovim](https://wojciechkulik.pl/ios/the-complete-guide-to-ios-macos-development-in-neovim).
 
 Please read it to learn how to use this config.
 
