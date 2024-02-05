@@ -25,7 +25,9 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
       cmd = {
-        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+        vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")),
+        -- TODO: in case of issues try using the full path to sourcekit-lsp:
+        -- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
       },
       root_dir = function(filename, _)
         return util.root_pattern("buildServer.json")(filename)

@@ -8,8 +8,7 @@ This a repository with a sample config that provides all features required to de
 - SwiftLint - install via Homebrew
 - SwiftFormat - install via Homebrew
 - xcbeautify - install via Homebrew
-- [xcode-build-server](https://github.com/SolaWing/xcode-build-server) - clone repository, unzip, and run it for your project
-- make sure that the path to `sourcekit-lsp` in `nvim-lspconfig.lua` points to you Xcode.
+- [xcode-build-server](https://github.com/SolaWing/xcode-build-server) - build your project in Xcode, clone the repository, unzip, and run this tool for your project
 
 ## Basic Key Bindings
 
