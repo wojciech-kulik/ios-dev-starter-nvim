@@ -91,11 +91,11 @@ return {
 
     vim.keymap.set("n", "<leader>dd", xcodebuild.build_and_debug, { desc = "Build & Debug" })
     vim.keymap.set("n", "<leader>dr", xcodebuild.debug_without_build, { desc = "Debug Without Building" })
-    vim.keymap.set("n", "<C-b>", function()
+    vim.keymap.set("n", "<A-b>", function()
       dap.toggle_breakpoint()
       breakpoints.store()
     end, { desc = "Toggle Breakpoint" })
-    vim.keymap.set("n", "<C-s-b>", function()
+    vim.keymap.set("n", "<A-v>", function()
       dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
       breakpoints.store()
     end, { desc = "Toggle Log Breakpoint" })

@@ -5,6 +5,7 @@ This a repository with a sample config that provides all features required to de
 ## Requirements
 
 - [codelldb](https://github.com/vadimcn/codelldb/releases) - download latest release for DARWIN and unzip `vsix` file. Then make sure that the path in `nvim-dap/init.lua` points to this folder
+- [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) - install via gem
 - SwiftLint - install via Homebrew
 - SwiftFormat - install via Homebrew
 - xcbeautify - install via Homebrew
@@ -12,13 +13,15 @@ This a repository with a sample config that provides all features required to de
 
 ## Basic Key Bindings
 
-- `<leader>dd` - build, run & debug app
 - `<leader>X` - open `xcodebuild.nvim` picker with project actions
+- `<leader>xf` - to open Project Manager and manage files
+- `<leader>dd` - build, run & debug app
+- `<leader>xr` - build & run
 - `<leader>xb` - build project
 - `<leader>xt` - run tests
-- `<leader>xc` - show code coverage
+- `<leader>xc` - toggle code coverage
 - `<leader>xC` - show code coverage report
-- `<C-b>` - toggle breakpoint
+- `<A-b>` - toggle breakpoint
 
 ## Full Tutorial
 
