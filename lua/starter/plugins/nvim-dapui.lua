@@ -8,15 +8,15 @@ return {
         element = "repl",
         enabled = true,
         icons = {
-          disconnect = "󱐤",
-          run_last = "󰑙",
-          terminate = "",
-          pause = "󰏤",
+          disconnect = "",
+          run_last = "",
+          terminate = "⏹︎",
+          pause = "⏸︎",
           play = "",
           step_into = "󰆹",
           step_out = "󰆸",
-          step_over = "󰆷",
-          step_back = "󰓕",
+          step_over = "",
+          step_back = "",
         },
       },
       floating = {
@@ -25,7 +25,11 @@ return {
           close = { "q", "<Esc>" },
         },
       },
-      icons = { collapsed = "", expanded = "", current_frame = "" },
+      icons = {
+        collapsed = "",
+        expanded = "",
+        current_frame = "",
+      },
       layouts = {
         {
           elements = {
@@ -39,7 +43,8 @@ return {
         },
         {
           elements = {
-            { id = "repl", size = 1.0 },
+            { id = "repl", size = 0.4 },
+            { id = "console", size = 0.6 },
           },
           position = "bottom",
           size = 10,
