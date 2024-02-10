@@ -13,15 +13,21 @@ This a repository with a sample config that provides all features required to de
 
 ## Basic Key Bindings
 
+`<leader>` = `space`
+
 - `<leader>X` - open `xcodebuild.nvim` picker with project actions
 - `<leader>xf` - to open Project Manager and manage files
 - `<leader>dd` - build, run & debug app
+- `<leader>dt` - debug tests
 - `<leader>xr` - build & run
 - `<leader>xb` - build project
 - `<leader>xt` - run tests
 - `<leader>xc` - toggle code coverage
 - `<leader>xC` - show code coverage report
-- `<A-b>` - toggle breakpoint
+- `<leader>b` - toggle breakpoint
+- `<leader>e` - nvim-tree
+- `<leader>fg` - Telescope grep
+- `<leader>ff` - Telescope find file
 
 ## Full Tutorial
 

@@ -91,16 +91,19 @@ return {
 
     vim.keymap.set("n", "<leader>dd", xcodebuild.build_and_debug, { desc = "Build & Debug" })
     vim.keymap.set("n", "<leader>dr", xcodebuild.debug_without_build, { desc = "Debug Without Building" })
-    vim.keymap.set("n", "<A-b>", function()
+    vim.keymap.set("n", "<leader>dt", xcodebuild.debug_tests, { desc = "Debug Tests" })
+    vim.keymap.set("n", "<leader>b", function()
       dap.toggle_breakpoint()
       breakpoints.store()
     end, { desc = "Toggle Breakpoint" })
-    vim.keymap.set("n", "<A-v>", function()
+    vim.keymap.set("n", "<leader>B", function()
       dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
       breakpoints.store()
     end, { desc = "Toggle Log Breakpoint" })
     vim.keymap.set("n", "<Leader>dx", function()
-      dap.terminate()
+      if dap.session() then
+        dap.terminate()
+      end
       require("xcodebuild.actions").cancel()
 
       local success, dapui = pcall(require, "dapui")

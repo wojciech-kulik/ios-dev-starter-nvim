@@ -1,26 +1,32 @@
 return {
-  "Mofiqul/dracula.nvim",
-  name = "dracula",
+  "catppuccin/nvim",
+  name = "catppuccin",
+  lazy = false,
   priority = 1000,
   config = function()
-    local colors = require("dracula").colors()
-    local searchHighlight = { bg = "#3e68d7", fg = colors.fg }
+    require("catppuccin").setup({
+      -- flavour = "macchiato",
+      flavour = "mocha",
+      transparent_background = false,
+      dim_inactive = {
+        enabled = false, -- dims the background color of inactive window
+        shade = "light",
+        percentage = 0.9, -- percentage of the shade to apply to the inactive window
+      },
+      custom_highlights = function(colors)
+        local searchActive = { bg = colors.red, fg = "#181825" }
+        local searchInactive = { bg = colors.peach, fg = "#000000" }
 
-    require("dracula").setup({
-      colors = {
-        bright_red = colors.comment,
-      },
-      transparent_bg = false,
-      overrides = {
-        CursorLine = { bg = colors.selection },
-        FlashLabel = { bg = "#FF007C", bold = true },
-        Search = searchHighlight,
-        IncSearch = searchHighlight,
-        FlashMatch = searchHighlight,
-        FlashCurrent = searchHighlight,
-      },
+        return {
+          CursorLineNr = { fg = colors.flamingo },
+          Search = searchInactive,
+          IncSearch = searchActive,
+          EndOfBuffer = { fg = colors.flamingo },
+          WinSeparator = { fg = colors.surface0, bg = colors.surface0 },
+        }
+      end,
     })
 
-    vim.cmd([[colorscheme dracula]])
+    vim.cmd([[colorscheme catppuccin]])
   end,
 }
