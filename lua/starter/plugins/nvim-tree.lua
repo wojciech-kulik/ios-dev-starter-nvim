@@ -14,6 +14,9 @@ return {
     -- configure nvim-tree
     nvimtree.setup({
       open_on_tab = true,
+      notify = {
+        threshold = vim.log.levels.WARN,
+      },
       view = {
         width = 40,
         relativenumber = true,
