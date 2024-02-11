@@ -11,6 +11,14 @@ This a repository with a sample config that provides all features required to de
 - xcbeautify - install via Homebrew
 - [xcode-build-server](https://github.com/SolaWing/xcode-build-server) - build your project in Xcode, clone the repository, unzip, and run this tool for your project
 
+## Trying Out This Config
+
+If you want to just try this config without affecting your own. You can check out this repository to your `~/.config` directory and run:
+
+```bash
+NVIM_APPNAME=ios-dev-starter nvim
+```
+
 ## Basic Key Bindings
 
 `<leader>` = `space`
