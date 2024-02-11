@@ -16,7 +16,7 @@ This a repository with a sample config that provides all features required to de
 If you want to just try this config without affecting your own. You can check out this repository to your `~/.config` directory and run:
 
 ```bash
-NVIM_APPNAME=ios-dev-starter nvim
+NVIM_APPNAME=ios-dev-starter-nvim nvim
 ```
 
 ## Basic Key Bindings
