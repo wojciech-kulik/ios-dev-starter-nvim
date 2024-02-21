@@ -5,11 +5,25 @@ This a repository with a sample config that provides all features required to de
 ## Requirements
 
 - [codelldb](https://github.com/vadimcn/codelldb/releases) - download latest release for DARWIN and unzip `vsix` file. Then make sure that the path in `nvim-dap/init.lua` points to this folder
-- [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) - install via gem
-- SwiftLint - install via Homebrew
-- SwiftFormat - install via Homebrew
-- xcbeautify - install via Homebrew
+- [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) - to manage Xcode project file
 - [xcode-build-server](https://github.com/SolaWing/xcode-build-server) - build your project in Xcode, clone the repository, unzip, and run this tool for your project
+- [pymobiledevice3](https://github.com/doronz88/pymobiledevice3) - to debug on physical devices and/or run apps on devices below iOS 17
+- [SwiftLint](https://github.com/realm/SwiftLint) - code linter
+- [SwiftFormat](https://github.com/nicklockwood/SwiftFormat) - code formatter
+- [xcbeautify](https://github.com/cpisciotta/xcbeautify) - Xcode logs formatter
+
+## Installation
+
+Please make sure to install all dependencies and get familiar with [README.md from xcodebuild.nvim repository](https://github.com/wojciech-kulik/xcodebuild.nvim).
+
+```
+brew install xcode-build-server
+brew install xcbeautify
+brew install swiftlint
+brew install swiftformat
+gem install xcodeproj
+python3 -m pip install -U pymobiledevice3
+```
 
 ## Trying Out This Config
 
