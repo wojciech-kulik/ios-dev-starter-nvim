@@ -70,8 +70,8 @@ keymap.set("v", "<C-g>", "<cmd>m .+1<CR>gv=gv", { desc = "Move text down" })
 keymap.set("v", "<C-t>", "<cmd>m .-2<CR>gv=gv", { desc = "Move text up" })
 
 -- jumping between issues
-keymap.set("n", "<A-d>", "<cmd>silent cn<cr>zz", { desc = "Jump to next issue" })
-keymap.set("n", "<A-s>", "<cmd>silent cp<cr>zz", { desc = "Jump to previous issue" })
+keymap.set("n", "<A-d>", "<cmd>silent cc | silent cn<cr>zz", { desc = "Jump to next issue" })
+keymap.set("n", "<A-s>", "<cmd>silent cc | silent cp<cr>zz", { desc = "Jump to previous issue" })
 
 -- other
 keymap.set("n", "<leader>mm", "<cmd>messages<cr>", { desc = "Show messages" })
