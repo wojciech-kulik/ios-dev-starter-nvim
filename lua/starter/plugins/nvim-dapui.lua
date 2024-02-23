@@ -39,7 +39,7 @@ return {
             { id = "watches", size = 0.25 },
           },
           position = "left",
-          size = 60,
+          size = 40,
         },
         {
           elements = {
@@ -53,6 +53,23 @@ return {
     })
 
     local dap, dapui = require("dap"), require("dapui")
+    local group = vim.api.nvim_create_augroup("dapui_config", { clear = true })
+
+    -- hide ~ in DAPUI
+    vim.api.nvim_create_autocmd("BufWinEnter", {
+      group = group,
+      pattern = "DAP*",
+      callback = function()
+        vim.wo.fillchars = "eob: "
+      end,
+    })
+    vim.api.nvim_create_autocmd("BufWinEnter", {
+      group = group,
+      pattern = "\\[dap\\-repl\\]",
+      callback = function()
+        vim.wo.fillchars = "eob: "
+      end,
+    })
 
     dap.listeners.after.event_initialized["dapui_config"] = function()
       dapui.open()

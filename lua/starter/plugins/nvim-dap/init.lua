@@ -2,7 +2,7 @@ local function setupListeners()
   local dap = require("dap")
 
   dap.listeners.after["event_initialized"]["me"] = function()
-    vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Continue" })
+    vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Continue", noremap = true })
     vim.keymap.set("n", "<leader>dC", dap.run_to_cursor, { desc = "Run To Cursor" })
     vim.keymap.set("n", "<leader>ds", dap.step_over, { desc = "Step Over" })
     vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Step Into" })
@@ -29,7 +29,7 @@ return {
   },
   config = function()
     local dap = require("dap")
-    local xcodebuild = require("xcodebuild.dap")
+    local xcodebuild = require("xcodebuild.integrations.dap")
     local breakpoints = require("starter.plugins.nvim-dap.dap-remember-breakpoints")
     local autogroup = vim.api.nvim_create_augroup("dap-breakpoints", { clear = true })
 

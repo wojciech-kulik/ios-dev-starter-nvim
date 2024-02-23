@@ -20,7 +20,7 @@ return {
         highlight = {
           enable = true,
         },
-        indent = { enable = true },
+        -- indent = { enable = true },
         autotag = { enable = false },
         ensure_installed = {
           "json",

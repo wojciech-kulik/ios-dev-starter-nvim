@@ -14,7 +14,7 @@ keymap.set("n", "<leader>w", "<cmd>wa<CR>", { desc = "Save Changes" })
 
 -- disable updating register for x and c
 keymap.set("n", "x", '"_x')
-keymap.set("v", "c", '"_c')
+keymap.set("n", "c", '"_c')
 keymap.set("n", "C", '"_C')
 
 -- window management
@@ -51,8 +51,7 @@ keymap.set("n", "<leader>bx", "<cmd>%bd|e#|bd#<CR>", { desc = "Close all buffers
 -- copy & paste
 keymap.set("x", "p", '"_dP')
 keymap.set("x", "Y", "y$", { desc = "Yank to end of line" })
-keymap.set("n", "<leader>DD", '"_dd', { desc = "Delete without changing register" })
-keymap.set("v", "<leader>DD", '"_dd', { desc = "Delete without changing register" })
+keymap.set("", "<leader>DD", '"_dd', { desc = "Delete without changing register" })
 
 -- scrolling
 keymap.set("n", "<C-d>", "<C-d>zz")
@@ -69,6 +68,10 @@ keymap.set("n", "<tab>", ">>", { desc = "Indent right" })
 -- moving blocks up and down
 keymap.set("v", "<C-g>", "<cmd>m .+1<CR>gv=gv", { desc = "Move text down" })
 keymap.set("v", "<C-t>", "<cmd>m .-2<CR>gv=gv", { desc = "Move text up" })
+
+-- jumping between issues
+keymap.set("n", "<A-d>", "<cmd>silent cn<cr>zz", { desc = "Jump to next issue" })
+keymap.set("n", "<A-s>", "<cmd>silent cp<cr>zz", { desc = "Jump to previous issue" })
 
 -- other
 keymap.set("n", "<leader>mm", "<cmd>messages<cr>", { desc = "Show messages" })
