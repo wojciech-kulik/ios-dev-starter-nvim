@@ -4,7 +4,7 @@ This a repository with a sample config that provides all features required to de
 
 ## Requirements
 
-- [codelldb](https://github.com/vadimcn/codelldb/releases) - download latest release for DARWIN and unzip `vsix` file. Then make sure that the path in `nvim-dap/init.lua` points to this folder
+- [codelldb](https://github.com/vadimcn/codelldb/releases) - download latest release for DARWIN and unzip `vsix` file. Then make sure that the path in `nvim-dap.lua` points to this folder
 - [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) - to manage Xcode project file
 - [xcode-build-server](https://github.com/SolaWing/xcode-build-server) - build your project in Xcode, clone the repository, unzip, and run this tool for your project
 - [pymobiledevice3](https://github.com/doronz88/pymobiledevice3) - to debug on physical devices and/or run apps on devices below iOS 17
@@ -21,6 +21,7 @@ brew install xcode-build-server
 brew install xcbeautify
 brew install swiftlint
 brew install swiftformat
+brew install ruby
 gem install xcodeproj
 python3 -m pip install -U pymobiledevice3
 ```

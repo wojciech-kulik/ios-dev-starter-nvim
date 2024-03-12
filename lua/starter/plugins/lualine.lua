@@ -47,8 +47,8 @@ return {
         },
         lualine_c = {},
         lualine_x = {
-          { "' ' .. vim.g.xcodebuild_last_status", color = { fg = "Gray" } },
-          { "'󰙨 ' .. vim.g.xcodebuild_test_plan", color = { fg = "#a6e3a1", bg = "#161622" } },
+          { "' ' .. vim.g.xcodebuild_last_status", color = { fg = "#a6e3a1" } },
+          -- { "'󰙨 ' .. vim.g.xcodebuild_test_plan", color = { fg = "#a6e3a1", bg = "#161622" } },
           { xcodebuild_device, color = { fg = "#f9e2af", bg = "#161622" } },
         },
         lualine_y = {
