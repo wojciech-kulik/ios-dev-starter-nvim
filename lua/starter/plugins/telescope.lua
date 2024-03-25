@@ -7,7 +7,9 @@ return {
   config = function()
     local telescope = require("telescope")
 
-    telescope.setup({})
+    telescope.setup({
+        ensure_installed = { "swift" }
+    })
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
