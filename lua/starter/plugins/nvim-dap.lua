@@ -50,6 +50,9 @@ return {
 
     setupListeners()
 
+    --when breakpoint is hit, it sets the focus to the buffer with the breakpoint
+    require("dap").defaults.fallback.switchbuf = "usetab,uselast"
+
     --stylua: ignore start
     vim.keymap.set("n", "<leader>dd", xcodebuild.build_and_debug, { desc = "Build & Debug" })
     vim.keymap.set("n", "<leader>dr", xcodebuild.debug_without_build, { desc = "Debug Without Building" })
