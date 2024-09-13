@@ -3,7 +3,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   event = { "BufReadPre", "BufNewFile" },
   keys = {
-    { "<leader>tt", "<cmd>TroubleToggle quickfix<cr>", { desc = "Open a quickfix" } },
+    { "<leader>tt", "<cmd>Trouble quickfix toggle<cr>", { desc = "Open a quickfix" } },
   },
 
   opts = {},
@@ -12,7 +12,7 @@ return {
       auto_open = false,
       auto_close = false,
       auto_preview = true,
-      auto_jump = {},
+      auto_jump = false,
       mode = "quickfix",
       severity = vim.diagnostic.severity.ERROR,
       cycle_results = false,
@@ -29,7 +29,7 @@ return {
           require("trouble").close()
         elseif not event.data.failedCount or event.data.failedCount > 0 then
           if next(vim.fn.getqflist()) then
-            require("trouble").open({ focus = false })
+            require("trouble").open("quickfix")
           else
             require("trouble").close()
           end
