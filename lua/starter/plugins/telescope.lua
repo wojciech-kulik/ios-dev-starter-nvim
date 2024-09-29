@@ -1,6 +1,5 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -8,7 +7,7 @@ return {
     local telescope = require("telescope")
 
     telescope.setup({
-        ensure_installed = { "swift" }
+      ensure_installed = { "swift" },
     })
 
     -- set keymaps

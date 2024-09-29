@@ -51,6 +51,7 @@ NVIM_APPNAME=ios-dev-starter-nvim nvim
 - `<leader>e` - nvim-tree
 - `<leader>fg` - Telescope grep
 - `<leader>ff` - Telescope find file
+- `<leader>tt` - toggle Trouble
 
 ## Full Tutorial
 

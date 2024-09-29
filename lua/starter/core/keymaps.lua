@@ -65,10 +65,6 @@ keymap.set("v", "<A-l>", ">gv", { desc = "Indent right" })
 keymap.set("n", "<A-h>", "<<", { desc = "Indent left" })
 keymap.set("n", "<A-l>", ">>", { desc = "Indent right" })
 
--- moving blocks up and down
-keymap.set("v", "<C-g>", "<cmd>m .+1<CR>gv=gv", { desc = "Move text down" })
-keymap.set("v", "<C-t>", "<cmd>m .-2<CR>gv=gv", { desc = "Move text up" })
-
 -- jumping between issues
 keymap.set("n", "<A-d>", "<cmd>silent cc | silent cn<cr>zz", { desc = "Jump to next issue" })
 keymap.set("n", "<A-s>", "<cmd>silent cc | silent cp<cr>zz", { desc = "Jump to previous issue" })
