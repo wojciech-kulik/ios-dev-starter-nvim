@@ -60,10 +60,10 @@ keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
 -- indenting
-keymap.set("v", "<s-tab>", "<gv", { desc = "Indent left" })
-keymap.set("v", "<tab>", ">gv", { desc = "Indent right" })
-keymap.set("n", "<s-tab>", "<<", { desc = "Indent left" })
-keymap.set("n", "<tab>", ">>", { desc = "Indent right" })
+keymap.set("v", "<A-h>", "<gv", { desc = "Indent left" })
+keymap.set("v", "<A-l>", ">gv", { desc = "Indent right" })
+keymap.set("n", "<A-h>", "<<", { desc = "Indent left" })
+keymap.set("n", "<A-l>", ">>", { desc = "Indent right" })
 
 -- moving blocks up and down
 keymap.set("v", "<C-g>", "<cmd>m .+1<CR>gv=gv", { desc = "Move text down" })
