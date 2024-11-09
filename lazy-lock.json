@@ -27,5 +27,5 @@
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "telescope.nvim": { "branch": "master", "commit": "85922dde3767e01d42a08e750a773effbffaea3e" },
   "trouble.nvim": { "branch": "main", "commit": "3dc00c0447c016cd43e03054c3d49436a1f2076d" },
-  "xcodebuild.nvim": { "branch": "main", "commit": "2ca708084c4cdb3552d8938bc78feda6045a9b9d" }
+  "xcodebuild.nvim": { "branch": "main", "commit": "f4457fa24c3b379983c57be5ac1ec8bab8dc2b68" }
 }
