@@ -24,6 +24,7 @@ return {
     end
 
     lspconfig["sourcekit"].setup({
+      cmd = { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")), },
       capabilities = capabilities,
       on_attach = on_attach,
       on_init = function(client)
