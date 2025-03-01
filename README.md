@@ -17,13 +17,9 @@ This a repository with a sample config that provides all features required to de
 Please make sure to install all dependencies and get familiar with [README.md from xcodebuild.nvim repository](https://github.com/wojciech-kulik/xcodebuild.nvim).
 
 ```
-brew install xcode-build-server
-brew install xcbeautify
-brew install swiftlint
-brew install swiftformat
-brew install ruby
+brew install xcode-build-server xcbeautify swiftformat swiftlint ruby pipx rg jq
 gem install xcodeproj
-python3 -m pip install -U pymobiledevice3
+pipx install pymobiledevice3
 ```
 
 ## Trying Out This Config
