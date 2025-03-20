@@ -11,13 +11,14 @@ This a repository with a sample config that provides all features required to de
 - [SwiftLint](https://github.com/realm/SwiftLint) - code linter
 - [SwiftFormat](https://github.com/nicklockwood/SwiftFormat) - code formatter
 - [xcbeautify](https://github.com/cpisciotta/xcbeautify) - Xcode logs formatter
+- [coreutils](https://formulae.brew.sh/formula/coreutils) - allows to print macOS app logs without attached debugger
 
 ## Installation
 
 Please make sure to install all dependencies and get familiar with [README.md from xcodebuild.nvim repository](https://github.com/wojciech-kulik/xcodebuild.nvim).
 
 ```
-brew install xcode-build-server xcbeautify swiftformat swiftlint ruby pipx rg jq
+brew install xcode-build-server xcbeautify swiftformat swiftlint ruby pipx rg jq coreutils
 gem install xcodeproj
 pipx install pymobiledevice3
 ```
