@@ -6,7 +6,7 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
-    local lspconfig = require("lspconfig")
+    local lspconfig = vim.lsp.config
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local capabilities = cmp_nvim_lsp.default_capabilities()
     local opts = { noremap = true, silent = true }
@@ -23,15 +23,16 @@ return {
       vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions trim_text=true<cr>", opts)
     end
 
-    lspconfig["sourcekit"].setup({
-      cmd = { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")), },
+    lspconfig("sourcekit", {
       capabilities = capabilities,
       on_attach = on_attach,
-      on_init = function(client)
-        -- HACK: to fix some issues with LSP
-        -- more details: https://github.com/neovim/neovim/issues/19237#issuecomment-2237037154
-        client.offset_encoding = "utf-8"
+      root_dir = function(_, callback)
+        callback(
+          require("lspconfig.util").root_pattern("Package.swift")(vim.fn.getcwd())
+            or require("lspconfig.util").find_git_ancestor(vim.fn.getcwd())
+        )
       end,
+      cmd = { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")) }
     })
 
     -- nice icons

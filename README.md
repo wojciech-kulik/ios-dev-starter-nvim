@@ -4,7 +4,7 @@ This a repository with a sample config that provides all features required to de
 
 ## Requirements
 
-- [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) - to manage Xcode project file
+- [XcodeProjectCLI](https://github.com/wojciech-kulik/XcodeProjectCLI) - to manage Xcode project file
 - [xcode-build-server](https://github.com/SolaWing/xcode-build-server) - build your project in Xcode, clone the repository, unzip, and run this tool for your project
 - [pymobiledevice3](https://github.com/doronz88/pymobiledevice3) - to debug on physical devices and/or run apps on devices below iOS 17
 - [SwiftLint](https://github.com/realm/SwiftLint) - code linter
@@ -17,8 +17,8 @@ This a repository with a sample config that provides all features required to de
 Please make sure to install all dependencies and get familiar with [README.md from xcodebuild.nvim repository](https://github.com/wojciech-kulik/xcodebuild.nvim).
 
 ```
-brew install xcode-build-server xcbeautify swiftformat swiftlint ruby pipx rg jq coreutils
-gem install xcodeproj
+brew install xcode-build-server xcbeautify swiftformat swiftlint pipx rg jq coreutils
+brew install wojciech-kulik/tap/xcp
 pipx install pymobiledevice3
 ```
 
