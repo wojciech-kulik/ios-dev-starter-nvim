@@ -17,8 +17,7 @@ This a repository with a sample config that provides all features required to de
 Please make sure to install all dependencies and get familiar with [README.md from xcodebuild.nvim repository](https://github.com/wojciech-kulik/xcodebuild.nvim).
 
 ```
-brew install xcode-build-server xcbeautify swiftformat swiftlint pipx rg jq coreutils
-brew install wojciech-kulik/tap/xcp
+brew install xcp xcode-build-server xcbeautify swiftformat swiftlint pipx rg jq coreutils
 pipx install pymobiledevice3
 ```
 
