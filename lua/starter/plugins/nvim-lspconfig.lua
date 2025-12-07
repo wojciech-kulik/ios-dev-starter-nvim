@@ -32,8 +32,9 @@ return {
             or require("lspconfig.util").find_git_ancestor(vim.fn.getcwd())
         )
       end,
-      cmd = { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")) }
+      cmd = { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")) },
     })
+    vim.lsp.enable("sourcekit")
 
     -- nice icons
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
